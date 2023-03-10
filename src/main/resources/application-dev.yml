@@ -12,24 +12,15 @@ spring:
         # [可选] 超时时间
         timeout: 10000
 
-# [可选] WVP监听的HTTP端口, 网页和接口调用都是这个端口
 server:
-    port: 18081
-    # [可选] HTTPS配置， 默认不开启
-    ssl:
-        # [可选] 是否开启HTTPS访问
-        enabled: false
-        # [可选] 证书文件路径，放置在resource/目录下即可，修改xxx为文件名
-        key-store: classpath:xxx.jks
-        # [可选] 证书密码
-        key-password: password
-        # [可选] 证书类型， 默认为jks，根据实际修改
-        key-store-type: JKS
+    port: 18180
 
 # [根据业务需求配置]
 userSettings:
-    # [必选 ] zlm配置的录像路径
-    record: /media/lin/Server/ZLMediaKit/dev/ZLMediaKit/release/linux/Debug/www/record
+    # [必选 ] 服务ID
+    id: Default
+    # [必选 ] StreamServer配置的录像路径
+    record: /root/streamserver_dist_1/www/record
     # [可选 ] 录像保存时长（单位： 天）每天晚12点自动对过期文件执行清理
     recordDay: 7
     # [可选 ] 录像下载合成临时文件保存时长， 不配置默认取值recordDay（单位： 天）每天晚12点自动对过期文件执行清理
@@ -46,12 +37,13 @@ swagger-ui:
 # [可选] 日志配置, 一般不需要改
 logging:
     file:
-        name: logs/wvp.log
+        name: logs/vbase-assist.log
         max-history: 30
         max-size: 10MB
         total-size-cap: 300MB
     level:
         root: WARN
-        top:
-            panll:
-                assist: info
+        com:
+            sescity:
+                vbase:
+                    assist: info
