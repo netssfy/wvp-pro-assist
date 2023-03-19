@@ -43,7 +43,7 @@ public class RedisConfig {
 		template.setHashKeySerializer(new StringRedisSerializer());
 		template.setConnectionFactory(redisConnectionFactory);
 		// 使用fastjson时需设置此项，否则会报异常not support type
-//		ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
+		ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
 		return template;
 
 	}
